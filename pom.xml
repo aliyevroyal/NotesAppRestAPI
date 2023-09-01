@@ -26,7 +26,6 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <java.version>17</java.version>
         <maven.compiler.release>17</maven.compiler.release>
-        <testSourceDirectory>/src/test/java</testSourceDirectory>
     </properties>
 
     <dependencies>
@@ -71,7 +70,6 @@
     </dependencies>
 
     <build>
-        <testSourceDirectory>${testSourceDirectory}</testSourceDirectory>
         <plugins>
             <plugin>
                 <groupId>org.springframework.boot</groupId>
