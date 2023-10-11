@@ -1,14 +1,11 @@
 package com.thealiyev.NotesAppRestAPI.controller;
 
 import com.thealiyev.NotesAppRestAPI.model.Note;
-import com.thealiyev.NotesAppRestAPI.repository.NotesRepository;
+import com.thealiyev.NotesAppRestAPI.service.NotesService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -17,10 +14,30 @@ import java.util.List;
 @CrossOrigin("*")
 public class NotesController {
     @Autowired
-    private NotesRepository notesRepository;
+    private NotesService notesService;
 
-    @GetMapping("/notes")
+    @GetMapping("/readNotes")
     public ResponseEntity<List<Note>> readNotes() {
-        return new ResponseEntity<>(notesRepository.findAll(), HttpStatus.OK);
+        return notesService.readNotes();
+    }
+
+    @PostMapping("/createNote")
+    public ResponseEntity<Note> createNote(@RequestBody Note note) {
+        return notesService.createNote(note);
+    }
+
+    @GetMapping("/notes/{id}")
+    public ResponseEntity<Note> readNote(@PathVariable Long id) {
+        return notesService.readNote(id);
+    }
+
+    @DeleteMapping("/notes/{id}")
+    public ResponseEntity<HttpStatus> deleteNote(@PathVariable Long id) {
+        return notesService.deleteNote(id);
+    }
+
+    @PutMapping("/notes")
+    public ResponseEntity<Note> updateNote(@RequestBody Note note) {
+        return notesService.updateNote(note);
     }
 }
