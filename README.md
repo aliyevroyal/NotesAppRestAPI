@@ -26,6 +26,8 @@ Before running the backend, ensure you have the following installed:
 
 2. Navigate to the backend directory.
 
+3. Run the Java application
+
 The backend will be running at `http://localhost:8080`.
 
 ## API Endpoints
