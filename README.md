@@ -1,4 +1,4 @@
-# Note Management CRUD Backend
+# Notes Management CRUD Backend
 
 This is the backend part of the Notes CRUD application, built using Java and Spring Boot. The backend provides RESTful API endpoints to manage notes data, including creating, reading, updating, and deleting notes records.
 
